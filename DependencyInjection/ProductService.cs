@@ -33,7 +33,7 @@ namespace AbstractAndInterface
         //    return prductRepository.GetList();
 
         //    //1. bu nesneleri benim yaratmamam lazım bunlar bana constractor dan gelmesi lazım.
-        //    //2.
+        //    
 
         //}
 
@@ -41,10 +41,6 @@ namespace AbstractAndInterface
         {
             return _productRepository.GetList(); // public olarak hiç bişiyi görmüyor artık PS sadece elimde getlist var.
         }
-
-
-
-
 
     }
 }
