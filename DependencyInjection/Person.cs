@@ -14,15 +14,34 @@ namespace DependencyInjection
         public int Age { get; set; }
         public string FullName => $"{FirstName} {LastName}"; //tek satır mesaj gövdesi olacak şekilde lamda ile ilerleyebiliriz. Ama bu durumda sadece FullName get olur seti olmaz. Zaten bizim de method olarak ihtiyacımız yok buna. Property olarak kalabilir.
 
+
+        public abstract void SalaryCalculate(); //bu metodu abstract yaptığım anda (sadece imzası var gövdesi yok) Person sınıfından miraz alan classların implement etmesi gerekir artık (zorunlu olarak). Yani alt sınıflara da sözleşmeye bağlı kalmayı zorluyorsun. Buna abstractlerde contract tanımlama denir.
+
+        //Abstract bir method varsa sınıfta mutlaka abstract olmalı.!!
+
+        public decimal BaseSalaryCalculate() //Abstract demediğin anda mesajın gövdesini kendin kodlayacaksın.
+        {
+            return 10M;
+        }
     }
 
     public class Manager : Person
     {
+        public override void SalaryCalculate() //abstract sınıfları override ile ezebiliyoruz.
+        {
+            decimal baseSalary=BaseSalaryCalculate();
+        }
+        public void ManagerMethod()
+        {
 
+        }
     }
 
     public class Employee : Person
     {
-
+        public override void SalaryCalculate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
