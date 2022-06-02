@@ -36,6 +36,7 @@ Console.WriteLine("Hello, World!");
 
 //Interface
 IProductRepository pr = new ProductRepository();
+pr = new ProductRepositoryOracle(); // bunu eklediğimde oracle dan geliyormuş gibi verileri gösterecek.
 
 ProductService ps = new ProductService(pr);
 
